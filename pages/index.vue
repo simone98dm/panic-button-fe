@@ -1,25 +1,26 @@
 <template>
   <div
-    class="container mx-auto items-center justify-center content-center max-width-sm text-center"
+    class="container mx-auto items-center justify-center content-center max-width-sm text-center mb-0"
   >
-    <span>{{ text }}</span>
     <button
-      class="border-2 border-purple-800 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-600 transition duration-300 hover:text-white text-4xl"
+      class="border-2 border-purple-800 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-600 transition duration-300 hover:text-white text-4xl w-full absolute inset-x-0 bottom-0"
       @click="callTheAlarm"
     >
       PANIC!!
     </button>
+    <span class="w-full text-4xl m-8 w-32 h-32 mx-auto">{{ this.text }}</span>
   </div>
 </template>
 
 <script lang="ts">
-import { AxiosResponse } from 'axios'
 import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage',
-  data: {
-    text: '',
+  data() {
+    return {
+      text: '',
+    }
   },
   methods: {
     async callTheAlarm() {
@@ -34,7 +35,7 @@ export default Vue.extend({
       this.text = available[random]
     },
     generateRandom(limit: number) {
-      return Math.floor(Math.random() * (limit + 1))
+      return Math.floor(Math.random() * (limit - 1))
     },
   },
 })
