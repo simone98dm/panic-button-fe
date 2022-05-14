@@ -35,6 +35,10 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+      theme_color: '#0064ff',
+      short_name: 'Panic',
+      name: 'Panic Button',
+      author: 'simone98dm',
     },
   },
   build: {},
