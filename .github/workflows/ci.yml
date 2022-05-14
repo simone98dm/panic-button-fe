@@ -11,7 +11,7 @@ on:
       - master
 
 jobs:
-  deploy:
+  prepare:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -29,7 +29,38 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+  test:
+    needs: prepare
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run unit tests
+        run: npm run test:integration
+
+      - name: Run unit tests
+        run: npm run test:e2e
+
+  deploy:
+    needs: test
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Generate
+        run: npm run generate
 
       - name: Generate
         run: npm run generate
