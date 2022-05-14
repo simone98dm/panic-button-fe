@@ -11,7 +11,7 @@
       "
     >
       <h3 class="font-semibold text-3xl text-gray-500">
-        PRESS THE PANIC
+        BREAK THE ICE
         <base-emoticon icon="panic" @onclick="changeTheme"></base-emoticon>
       </h3>
     </div>
