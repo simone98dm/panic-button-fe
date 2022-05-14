@@ -1,19 +1,33 @@
 <template>
-  <div
-    class="container mx-auto items-center justify-center content-center max-width-sm text-center mb-0"
-  >
-    <button
-      class="border-2 border-purple-800 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-purple-600 transition duration-300 hover:text-white text-4xl w-full absolute inset-x-0 bottom-0"
-      @click="callTheAlarm"
+  <the-main>
+    <div
+      class="
+        m-4
+        mt-32
+        mx-auto
+        items-center
+        justify-center
+        content-center
+        text-center
+      "
     >
-      PANIC!!
-    </button>
-    <span class="w-full text-4xl m-8 w-32 h-32 mx-auto">{{ this.text }}</span>
-  </div>
+      <base-text :text="this.text" color="light" size="large"></base-text>
+    </div>
+    <the-footer>
+      <base-button color="rainbow" @onclick="callTheAlarm">
+        <span>PANIC <base-emoticon icon="rocket" /></span>
+      </base-button>
+    </the-footer>
+  </the-main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import BaseText from '~/components/deep/BaseText/BaseText.vue'
+import BaseButton from '~/components/deep/BaseButton/BaseButton.vue'
+import TheFooter from '~/components/high/TheFooter/TheFooter.vue'
+import TheMain from '~/components/high/TheMain/TheMain.vue'
+import BaseEmoticon from '~/components/deep/BaseEmoticon/BaseEmoticon.vue'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -30,7 +44,6 @@ export default Vue.extend({
         )
         .then((response) => response.data)
         .then((data: string) => data.split('\n'))
-
       const random = this.generateRandom(available.length)
       this.text = available[random]
     },
@@ -38,5 +51,6 @@ export default Vue.extend({
       return Math.floor(Math.random() * (limit - 1))
     },
   },
+  components: { BaseText, BaseButton, TheFooter, TheMain, BaseEmoticon },
 })
 </script>
