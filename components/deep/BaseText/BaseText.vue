@@ -1,5 +1,5 @@
 <template>
-  <span :class="[textSize, textColor, 'text-mono']">{{ this.text }}</span>
+  <span :class="[textSize, textColor, 'text-mono', 'font-bold']">{{ this.text }}</span>
 </template>
 
 <script lang="ts">
@@ -48,6 +48,8 @@ export default Vue.extend({
           return 'text-md'
         case Size.TINY:
           return 'text-sm'
+        default:
+          return 'text-md'
       }
     },
     textColor() {

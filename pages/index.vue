@@ -11,7 +11,7 @@
         text-center
       "
     >
-      <base-text :text="this.text" color="light" size="large"></base-text>
+      <base-text :text="this.text" color="light" size="superlarge"></base-text>
     </div>
     <the-footer>
       <base-button color="rainbow" @onclick="callTheAlarm">
