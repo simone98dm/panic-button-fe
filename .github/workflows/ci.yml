@@ -44,7 +44,7 @@ jobs:
         run: npm run test:e2e
 
   deploy:
-    needs: test
+    needs: prepare
     runs-on: ${{ matrix.os }}
 
     strategy:
