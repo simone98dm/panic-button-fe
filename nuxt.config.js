@@ -16,7 +16,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/png',
-        href: '/pani-button/favicon_32x32.png',
+        href: '/panic-button/favicon_32x32.png',
       },
     ],
   },
