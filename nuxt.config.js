@@ -12,7 +12,13 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/png', href: '/favicon_32x32.png' }],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/pani-button/favicon_32x32.png',
+      },
+    ],
   },
   css: [],
   plugins: [],
