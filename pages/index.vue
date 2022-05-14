@@ -39,7 +39,7 @@ export default Vue.extend({
   methods: {
     async callTheAlarm() {
       const available = await this.$axios
-        .get('./panic/single/README.md')
+        .get('/panic-button/panic/single/README.md')
         .then((response) => response.data)
         .then((data: string) => data.split('\n'))
       const random = this.generateRandom(available.length)
