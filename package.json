@@ -10,7 +10,9 @@
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:prettier",
     "lintfix": "prettier --write --list-different .",
-    "test": "jest --passWithNoTests"
+    "test:unit": "jest --passWithNoTests",
+    "test:integration": "",
+    "test:e2e": ""
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
