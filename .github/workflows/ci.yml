@@ -11,7 +11,8 @@ on:
       - master
 
 jobs:
-  prepare:
+  build-test-deploy:
+    needs: prepare
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -42,27 +43,6 @@ jobs:
 
       - name: Run unit tests
         run: npm run test:e2e
-
-  deploy:
-    needs: prepare
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Setup node env
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Generate
         run: npm run generate
