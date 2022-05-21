@@ -28,6 +28,7 @@ import BaseButton from '~/components/deep/BaseButton/BaseButton.vue'
 import TheFooter from '~/components/high/TheFooter/TheFooter.vue'
 import TheMain from '~/components/high/TheMain/TheMain.vue'
 import BaseEmoticon from '~/components/deep/BaseEmoticon/BaseEmoticon.vue'
+import { baseUrl, basePath, panicButtonEndpoints } from '~/config/config'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -38,12 +39,14 @@ export default Vue.extend({
   },
   methods: {
     async callTheAlarm() {
-      const available = await this.$axios
-        .get('/panic-button/panic/single/README.md')
+      const apiUrl = `${baseUrl}${basePath}`
+      await this.$axios
+        .get(`${apiUrl}${panicButtonEndpoints.all}`)
         .then((response) => response.data)
-        .then((data: string) => data.split('\n'))
-      const random = this.generateRandom(available.length)
-      this.text = available[random]
+        .then((data: { data: string }[]) => {
+          const random = this.generateRandom(data.length)
+          this.text = data[random].data
+        })
     },
     generateRandom(limit: number) {
       return Math.floor(Math.random() * (limit - 1))
