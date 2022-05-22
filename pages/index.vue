@@ -39,17 +39,10 @@ export default Vue.extend({
   },
   methods: {
     async callTheAlarm() {
-      const apiUrl = `${baseUrl}${basePath}`
       await this.$axios
-        .get(`${apiUrl}${panicButtonEndpoints.all}`)
+        .get(`${baseUrl}${basePath}${panicButtonEndpoints.all}`)
         .then((response) => response.data)
-        .then((data: { data: string }[]) => {
-          const random = this.generateRandom(data.length)
-          this.text = data[random].data
-        })
-    },
-    generateRandom(limit: number) {
-      return Math.floor(Math.random() * (limit - 1))
+        .then((data: { data: string }) => (this.text = data.data))
     },
   },
   components: { BaseText, BaseButton, TheFooter, TheMain, BaseEmoticon },
