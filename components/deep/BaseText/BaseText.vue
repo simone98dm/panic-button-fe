@@ -1,5 +1,7 @@
 <template>
-  <span :class="[textSize, textColor, 'text-mono', 'font-bold']">{{ this.text }}</span>
+  <span :class="[textSize, textColor, 'text-mono', 'font-bold']">{{
+    this.text
+  }}</span>
 </template>
 
 <script lang="ts">

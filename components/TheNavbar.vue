@@ -1,14 +1,7 @@
 <template>
   <nav class="bg-dark px-6 relative shadow-md">
     <div
-      class="
-        mx-auto
-        items-center
-        justify-center
-        content-center
-        text-center
-        py-2
-      "
+      class="mx-auto items-center justify-center content-center text-center py-2"
     >
       <h3 class="font-semibold text-3xl text-gray-500">
         BREAK THE ICE
