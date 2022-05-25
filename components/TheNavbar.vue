@@ -1,12 +1,21 @@
 <template>
   <nav class="bg-dark px-6 relative shadow-md">
     <div
-      class="mx-auto items-center justify-center content-center text-center py-2"
+      class="
+        mx-auto
+        items-center
+        justify-center
+        content-center
+        text-center
+        py-2
+      "
     >
       <h3 class="font-semibold text-3xl text-gray-500">
         BREAK THE ICE
         <base-emoticon icon="panic" @onclick="changeTheme"></base-emoticon>
       </h3>
+
+      <Language></Language>
     </div>
   </nav>
 </template>
@@ -14,6 +23,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import BaseEmoticon from '~/components/deep/BaseEmoticon/BaseEmoticon.vue'
+import Language from '~/components/high/Language/Language.vue'
 
 enum Theme {
   DARK = 'dark',
@@ -22,7 +32,7 @@ enum Theme {
 
 export default Vue.extend({
   name: 'TheNavbar',
-  components: { BaseEmoticon },
+  components: { BaseEmoticon, Language },
   data() {
     return {
       color: '',
