@@ -1,23 +1,16 @@
 <template>
   <the-main>
     <div
-      class="
-        m-4
-        mt-32
-        mx-auto
-        items-center
-        justify-center
-        content-center
-        text-center
-      "
+      class="m-4 mt-32 mx-auto items-center justify-center content-center text-center"
     >
       <base-text :text="this.text" color="light" size="superlarge"></base-text>
     </div>
     <the-footer>
-      <base-button color="rainbow" @onclick="callTheAlarm">
+      <base-button color="rainbow" @onclick="callTheAlarm" :loading="loading">
         <span>PANIC <base-emoticon icon="rocket" /></span>
       </base-button>
     </the-footer>
+    <loading :show="loading"></loading>
   </the-main>
 </template>
 
@@ -28,6 +21,7 @@ import BaseButton from '~/components/deep/BaseButton/BaseButton.vue'
 import TheFooter from '~/components/high/TheFooter/TheFooter.vue'
 import TheMain from '~/components/high/TheMain/TheMain.vue'
 import BaseEmoticon from '~/components/deep/BaseEmoticon/BaseEmoticon.vue'
+import Loading from '~/components/deep/Loading/Loading.vue'
 import { baseUrl, basePath, panicButtonEndpoints } from '~/config/config'
 
 export default Vue.extend({
@@ -35,16 +29,27 @@ export default Vue.extend({
   data() {
     return {
       text: '',
+      loading: false,
     }
   },
   methods: {
     async callTheAlarm() {
+      this.loading = true
       await this.$axios
         .get(`${baseUrl}${basePath}${panicButtonEndpoints.all}`)
         .then((response) => response.data)
         .then((data: { data: string }) => (this.text = data.data))
+        .then(() => (this.loading = false))
+        .catch(() => (this.loading = false))
     },
   },
-  components: { BaseText, BaseButton, TheFooter, TheMain, BaseEmoticon },
+  components: {
+    BaseText,
+    BaseButton,
+    TheFooter,
+    TheMain,
+    BaseEmoticon,
+    Loading,
+  },
 })
 </script>
