@@ -1,7 +1,15 @@
 <template>
   <the-main>
     <div
-      class="m-4 mt-32 mx-auto items-center justify-center content-center text-center"
+      class="
+        m-4
+        mt-32
+        mx-auto
+        items-center
+        justify-center
+        content-center
+        text-center
+      "
     >
       <base-text :text="this.text" color="light" size="superlarge"></base-text>
     </div>
@@ -35,8 +43,9 @@ export default Vue.extend({
   methods: {
     async callTheAlarm() {
       this.loading = true
+      const url = `${baseUrl}${basePath}/${this.$store.getters.currentLang}${panicButtonEndpoints.all}`
       await this.$axios
-        .get(`${baseUrl}${basePath}${panicButtonEndpoints.all}`)
+        .get(url)
         .then((response) => response.data)
         .then((data: { data: string }) => (this.text = data.data))
         .then(() => (this.loading = false))
