@@ -1,5 +1,5 @@
 <template>
-  <select @change="updateSelection" :value="selected">
+  <select v-on="$listeners" :value="selected">
     <option v-for="(el, i) in this.data" :key="i" :value="el">{{ el }}</option>
   </select>
 </template>
@@ -16,11 +16,6 @@ export default Vue.extend({
     selected: {
       type: String,
       default: '',
-    },
-  },
-  methods: {
-    updateSelection(e: any) {
-      this.$emit('change', e.target.value)
     },
   },
 })
