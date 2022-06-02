@@ -2,7 +2,7 @@ export default {
   ssr: false,
   target: 'static',
   router: {
-    base: '/panic-button/',
+    base: '/',
   },
   head: {
     title: 'panic-button',
@@ -16,7 +16,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/png',
-        href: '/panic-button/favicon_32x32.png',
+        href: '/favicon_32x32.png',
       },
     ],
   },
@@ -40,6 +40,7 @@ export default {
       theme_color: '#0064ff',
       short_name: 'Panic',
       name: 'Panic Button',
+      description: 'Extroverted questions for introverters',
       author: 'simone98dm',
     },
   },
