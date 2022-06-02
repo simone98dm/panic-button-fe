@@ -16,16 +16,17 @@ export default Vue.extend({
   name: 'LanguageComponent',
   data() {
     return {
-      currentLanguage: '',
-      availableLanguage: [Languages.EN, Languages.IT],
+      currentLanguage: Languages.IT,
+      availableLanguage: [Languages.IT],
     }
   },
   mounted() {
     this.currentLanguage = this.$store.getters.currentLang
   },
   methods: {
-    changeLanguage(newLanguage: Languages) {
-      this.$store.dispatch('changeLanguage', newLanguage)
+    changeLanguage(newLanguage: any) {
+      const lang = newLanguage.target.value;
+      this.$store.dispatch('changeLanguage', lang)
     },
   },
   components: { Dropdown },

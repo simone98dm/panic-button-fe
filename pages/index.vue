@@ -14,7 +14,7 @@
       <base-text :text="this.text" color="light" size="superlarge"></base-text>
     </div>
     <the-footer>
-      <base-button color="rainbow" @onclick="callTheAlarm" :loading="loading">
+      <base-button color="rainbow" @click="callTheAlarm" :loading="loading">
         <span>PANIC <base-emoticon icon="rocket" /></span>
       </base-button>
     </the-footer>
@@ -36,7 +36,7 @@ export default Vue.extend({
   name: 'IndexPage',
   data() {
     return {
-      text: '',
+      text: 'Call the alarm 🚨',
       loading: false,
     }
   },
@@ -49,7 +49,10 @@ export default Vue.extend({
         .then((response) => response.data)
         .then((data: { data: string }) => (this.text = data.data))
         .then(() => (this.loading = false))
-        .catch(() => (this.loading = false))
+        .catch(() => {
+          this.loading = false
+          this.text = 'Something went wrong 😱'
+        })
     },
   },
   components: {
