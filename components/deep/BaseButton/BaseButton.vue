@@ -4,7 +4,7 @@
       buttonColor,
       'w-full px-5 py-3 text-sm shadow-sm font-medium tracking-wider rounded-md hover:shadow-2xl',
     ]"
-    @click="clickHandler"
+    v-on="$listeners"
   >
     <slot v-if="this.label === ''" />
     <span v-if="this.label !== ''">
@@ -35,11 +35,6 @@ export default Vue.extend({
     color: {
       type: String as PropType<Color>,
       default: Color.PURPLE,
-    },
-  },
-  methods: {
-    clickHandler() {
-      this.$emit('onclick')
     },
   },
   computed: {
