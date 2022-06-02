@@ -2,7 +2,6 @@
   <the-main>
     <div
       class="
-        m-4
         mt-32
         mx-auto
         items-center
@@ -11,14 +10,14 @@
         text-center
       "
     >
-      <base-text :text="this.text" color="light" size="superlarge"></base-text>
+      <base-text :text="this.text" color="light" size="superlarge" />
     </div>
     <the-footer>
       <base-button color="rainbow" @click="callTheAlarm" :loading="loading">
         <span>PANIC <base-emoticon icon="rocket" /></span>
       </base-button>
     </the-footer>
-    <loading :show="loading"></loading>
+    <loading :show="loading" />
   </the-main>
 </template>
 
