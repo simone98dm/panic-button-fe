@@ -12,21 +12,23 @@
 import Vue from 'vue'
 import { Languages } from '~/common/enums'
 import Dropdown from '~/components/deep/Dropdown/Dropdown.vue'
+import { useLangStore } from '~/store/lang.store'
 export default Vue.extend({
   name: 'LanguageComponent',
   data() {
     return {
       currentLanguage: Languages.IT,
-      availableLanguage: [Languages.IT],
+      availableLanguage: [Languages.IT, Languages.EN],
+      langStore: useLangStore(),
     }
   },
   mounted() {
-    this.currentLanguage = this.$store.getters.currentLang
+    this.currentLanguage = this.langStore.lang as Languages
   },
   methods: {
     changeLanguage(newLanguage: any) {
-      const lang = newLanguage.target.value;
-      this.$store.dispatch('changeLanguage', lang)
+      const lang = newLanguage.target.value as Languages
+      this.langStore.setLanguage(lang)
     },
   },
   components: { Dropdown },

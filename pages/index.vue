@@ -1,14 +1,7 @@
 <template>
   <the-main>
     <div
-      class="
-        mt-32
-        mx-auto
-        items-center
-        justify-center
-        content-center
-        text-center
-      "
+      class="mt-32 mx-auto items-center justify-center content-center text-center"
     >
       <base-text :text="this.text" color="light" size="superlarge" />
     </div>
@@ -30,6 +23,7 @@ import TheMain from '~/components/high/TheMain/TheMain.vue'
 import BaseEmoticon from '~/components/deep/BaseEmoticon/BaseEmoticon.vue'
 import Loading from '~/components/deep/Loading/Loading.vue'
 import { baseUrl, basePath, panicButtonEndpoints } from '~/config/config'
+import { useLangStore } from '~/store/lang.store'
 
 export default Vue.extend({
   name: 'IndexPage',
@@ -37,12 +31,13 @@ export default Vue.extend({
     return {
       text: 'Call the alarm 🚨',
       loading: false,
+      langStore: useLangStore(),
     }
   },
   methods: {
     async callTheAlarm() {
       this.loading = true
-      const url = `${baseUrl}${basePath}/${this.$store.getters.currentLang}${panicButtonEndpoints.all}`
+      const url = `${baseUrl}${basePath}/${this.langStore.lang}${panicButtonEndpoints.all}`
       await this.$axios
         .get(url)
         .then((response) => response.data)

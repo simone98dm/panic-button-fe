@@ -27,6 +27,8 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
+    '@nuxtjs/composition-api/module',
+    '@pinia/nuxt',
   ],
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
   axios: {
