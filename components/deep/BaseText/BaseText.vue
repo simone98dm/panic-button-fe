@@ -1,5 +1,5 @@
 <template>
-  <span :class="[textSize, textColor, 'text-mono', 'font-bold']">{{
+  <span :class="[textSize, textColor, 'font-mono', 'font-bold']">{{
     this.text
   }}</span>
 </template>
@@ -7,21 +7,8 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 
-enum Size {
-  SUPERLARGE = 'superlarge',
-  LARGE = 'large',
-  MEDIUM = 'medium',
-  TINY = 'tiny',
-}
-
-const enum Color {
-  DARK = 'dark',
-  LIGHT = 'light',
-  RED = 'red',
-  BLUE = 'blue',
-  PURPLE = 'purple',
-  RAINBOW = 'RAINBOW',
-}
+type Size = 'superlarge' | 'large' | 'medium' | 'small' | 'tiny'
+type Color = 'dark' | 'light' | 'red' | 'blue' | 'purple' | 'rainbow'
 
 export default Vue.extend({
   name: 'BaseText',
@@ -32,41 +19,43 @@ export default Vue.extend({
     },
     color: {
       type: String as PropType<Color>,
-      default: Color.DARK,
+      default: 'dark',
     },
     size: {
       type: String as PropType<Size>,
-      default: Size.MEDIUM,
+      default: 'medium',
     },
   },
   computed: {
     textSize() {
       switch (this.size) {
-        case Size.SUPERLARGE:
+        case 'superlarge':
           return 'text-4xl'
-        case Size.LARGE:
+        case 'large':
           return 'text-2xl'
-        case Size.MEDIUM:
+        case 'medium':
           return 'text-md'
-        case Size.TINY:
+        case 'small':
           return 'text-sm'
+        case 'tiny':
+          return 'text-xs'
         default:
           return 'text-md'
       }
     },
     textColor() {
       switch (this.color) {
-        case Color.DARK:
+        case 'dark':
           return 'text-gray-100'
-        case Color.LIGHT:
+        case 'light':
           return 'text-gray-800'
-        case Color.RED:
+        case 'red':
           return 'text-red-500'
-        case Color.BLUE:
+        case 'blue':
           return 'text-blue-500'
-        case Color.PURPLE:
+        case 'purple':
           return 'text-purple-500'
-        case Color.RAINBOW:
+        case 'rainbow':
           return 'bg-gradient-to-r from-indigo-500 via-pink-500'
       }
     },
