@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickHandler" style="display: inline-block">
+  <div v-on="$listeners" class="emoticon">
     <rocket v-if="this.icon === 'rocket'" />
     <panic v-if="this.icon === 'panic'" />
     <pizza v-if="this.icon === 'pizza'" />
@@ -7,16 +7,10 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import Vue from 'vue'
 import Rocket from '~/components/deep/BaseEmoticon/Emoticons/Rocket.vue'
 import Panic from '~/components/deep/BaseEmoticon/Emoticons/Panic.vue'
 import Pizza from '~/components/deep/BaseEmoticon/Emoticons/Pizza.vue'
-
-enum Icons {
-  ROCKET = 'rocket',
-  PANIC = 'panic',
-  PIZZA = 'pizza',
-}
 
 export default Vue.extend({
   name: 'BaseEmoticonComponent',
@@ -26,11 +20,12 @@ export default Vue.extend({
       required: true,
     },
   },
-  methods: {
-    clickHandler() {
-      this.$emit('onclick')
-    },
-  },
   components: { Rocket, Panic, Pizza },
 })
 </script>
+
+<style scoped>
+.emoticon {
+  display: inline-block;
+}
+</style>
