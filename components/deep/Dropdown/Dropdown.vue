@@ -1,5 +1,9 @@
 <template>
-  <select v-on="$listeners" :value="selected">
+  <select
+    v-on="$listeners"
+    :value="selected"
+    class="dark:bg-gray-600 dark:text-white text-dark bg-gray-100"
+  >
     <option v-for="(el, i) in this.data" :key="i" :value="el">{{ el }}</option>
   </select>
 </template>

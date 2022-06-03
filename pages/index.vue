@@ -1,7 +1,14 @@
 <template>
   <the-main>
     <div
-      class="mt-32 mx-auto items-center justify-center content-center text-center"
+      class="
+        mt-32
+        mx-auto
+        items-center
+        justify-center
+        content-center
+        text-center
+      "
     >
       <base-text :text="this.text" color="light" size="superlarge" />
     </div>

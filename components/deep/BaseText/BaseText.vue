@@ -46,15 +46,15 @@ export default Vue.extend({
     textColor() {
       switch (this.color) {
         case 'dark':
-          return 'text-gray-100'
+          return 'dark:text-gray-800 text-gray-100'
         case 'light':
-          return 'text-gray-800'
+          return 'dark:text-gray-100 text-gray-800'
         case 'red':
-          return 'text-red-500'
+          return 'dark:text-red-100 text-red-500'
         case 'blue':
-          return 'text-blue-500'
+          return 'dark:text-blue-100 text-blue-500'
         case 'purple':
-          return 'text-purple-500'
+          return 'dark:text-purple-100 text-purple-500'
         case 'rainbow':
           return 'bg-gradient-to-r from-indigo-500 via-pink-500'
       }

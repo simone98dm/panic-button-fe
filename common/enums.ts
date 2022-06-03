@@ -3,7 +3,4 @@ export enum Languages {
   IT = 'it',
 }
 
-export enum Themes {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
+export type Themes = 'light' | 'dark'

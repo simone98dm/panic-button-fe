@@ -25,8 +25,8 @@ export default {
   components: true,
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
+    '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
     '@pinia/nuxt',
   ],

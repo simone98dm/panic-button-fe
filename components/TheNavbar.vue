@@ -1,9 +1,16 @@
 <template>
-  <nav class="bg-dark px-6 relative shadow-md">
+  <nav class="px-6 relative shadow-md">
     <div
-      class="mx-auto items-center justify-center content-center text-center py-2"
+      class="
+        mx-auto
+        items-center
+        justify-center
+        content-center
+        text-center
+        py-2
+      "
     >
-      <h3 class="font-semibold text-3xl text-gray-500">
+      <h3 class="font-semibold text-3xl dark:text-gray-400 text-gray-600">
         BREAK THE ICE
         <base-emoticon icon="panic" @click="changeTheme"></base-emoticon>
       </h3>
@@ -18,32 +25,27 @@ import Vue from 'vue'
 import { Themes } from '~/common/enums'
 import BaseEmoticon from '~/components/deep/BaseEmoticon/BaseEmoticon.vue'
 import Language from '~/components/high/Language/Language.vue'
-import { useThemeStore } from '~/store/theme.store'
 
 export default Vue.extend({
   name: 'TheNavbar',
   components: { BaseEmoticon, Language },
   data() {
     return {
-      color: Themes.LIGHT,
-      themeStore: useThemeStore(),
+      color: 'light',
     }
   },
   mounted() {
-    this.color = this.themeStore.theme as Themes
+    this.color = (this as any).$colorMode.value
   },
   methods: {
     changeTheme() {
-      if (this.color === Themes.DARK) {
-        this.color = Themes.LIGHT
+      if (this.color === 'dark') {
+        this.color = 'light'
       } else {
-        this.color = Themes.DARK
+        this.color = 'dark'
       }
-      this.themeStore.setTheme(this.color)
-      console.log(
-        '🚀 ~ file: TheNavbar.vue ~ line 50 ~ changeTheme ~ this.themeStore',
-        this.themeStore.theme
-      )
+
+      ;(this as any).$colorMode.preference = this.color
     },
   },
 })

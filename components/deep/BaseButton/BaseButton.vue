@@ -2,7 +2,7 @@
   <button
     :class="[
       buttonColor,
-      'w-full px-5 py-3 text-sm shadow-sm font-medium tracking-wider rounded-md hover:shadow-2xl',
+      'w-full px-5 py-3 text-sm shadow-sm font-medium tracking-wider hover:shadow-2xl',
     ]"
     v-on="$listeners"
   >
