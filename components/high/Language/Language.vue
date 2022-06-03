@@ -18,7 +18,7 @@ export default Vue.extend({
   data() {
     return {
       currentLanguage: Languages.IT,
-      availableLanguage: [Languages.IT, Languages.EN],
+      availableLanguage: [Languages.IT],
       langStore: useLangStore(),
     }
   },
