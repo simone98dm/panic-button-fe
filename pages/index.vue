@@ -1,16 +1,20 @@
 <template>
   <the-main>
     <div
-      class="
-        mt-32
-        mx-auto
-        items-center
-        justify-center
-        content-center
-        text-center
-      "
+      :class="[
+        'mt-32',
+        'mx-auto',
+        'items-center',
+        'justify-center',
+        'content-center',
+        'text-center',
+      ]"
     >
-      <base-text :text="this.text" :color="this.$colorMode.value" size="superlarge" />
+      <base-text
+        :text="this.text"
+        :color="this.$colorMode.value"
+        size="superlarge"
+      />
     </div>
     <the-footer>
       <base-button color="rainbow" @click="callTheAlarm" :loading="loading">
