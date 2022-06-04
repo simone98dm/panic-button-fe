@@ -35,6 +35,11 @@ export default Vue.extend({
     }
   },
   mounted() {
+    const theme = (this as any).$colorMode.value
+    if (!theme) {
+      ;(this as any).$colorMode.preference = this.color
+      return
+    }
     this.color = (this as any).$colorMode.value
   },
   methods: {
