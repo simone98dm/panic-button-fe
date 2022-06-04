@@ -12,7 +12,7 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    backgroundColor: ['dark', 'dark-hover', 'dark-group-hover', 'dark-even', 'dark-odd']
   },
   plugins: [require('tailwindcss-dark-mode')()],
 }
