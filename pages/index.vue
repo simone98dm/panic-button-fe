@@ -10,7 +10,7 @@
         text-center
       "
     >
-      <base-text :text="this.text" color="light" size="superlarge" />
+      <base-text :text="this.text" :color="this.$colorMode.value" size="superlarge" />
     </div>
     <the-footer>
       <base-button color="rainbow" @click="callTheAlarm" :loading="loading">
