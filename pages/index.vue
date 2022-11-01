@@ -44,7 +44,7 @@ export default Vue.extend({
   methods: {
     async callTheAlarm() {
       this.loading = true
-      const url = `${baseUrl}${basePath}${panicButtonEndpoints.all}?locale=${this.langStore.lang}`
+      const url = `${basePath}${panicButtonEndpoints.all}?locale=${this.langStore.lang}`
       await this.$axios
         .get(url)
         .then((response) => response.data)
