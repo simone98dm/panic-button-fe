@@ -10,7 +10,7 @@
         text-center
       "
     >
-      <base-text :text="this.text" color="light" size="superlarge" />
+      <base-text :text="text" color="light" size="superlarge" />
     </div>
     <the-footer>
       <base-button color="rainbow" @click="callTheAlarm" :loading="loading">
@@ -44,7 +44,7 @@ export default Vue.extend({
   methods: {
     async callTheAlarm() {
       this.loading = true
-      const url = `${baseUrl}${basePath}/${this.langStore.lang}${panicButtonEndpoints.all}`
+      const url = `${baseUrl}${basePath}${panicButtonEndpoints.all}?locale=${this.langStore.lang}`
       await this.$axios
         .get(url)
         .then((response) => response.data)

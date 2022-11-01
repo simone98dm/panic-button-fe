@@ -1,6 +1,6 @@
 export enum Languages {
-  EN = 'en',
-  IT = 'it',
+  EN = 'en-EN',
+  IT = 'it-IT',
 }
 
 export type Themes = 'light' | 'dark'

@@ -1,0 +1,47 @@
+[
+    {
+      "data": "Montagna, mare o città?",
+      "locale": "it-IT",
+      "id": "e78f83ca-7ac4-4286-80ca-457b86c4e72c"
+    },
+    {
+      "data": "Cosa fai nella vita?",
+      "locale": "it-IT",
+      "id": "61bc6cac-225e-4c19-9cd4-acce6924b4ad"
+    },
+    {
+      "data": "Studi all'università?",
+      "locale": "it-IT",
+      "id": "db096167-ea2b-4031-8200-cd74d7981883"
+    },
+    {
+      "data": "Come hai passato questi 2 anni di pandemia?",
+      "locale": "it-IT",
+      "id": "978b2c7f-c28a-434c-aee0-dced85815362"
+    },
+    {
+      "data": "Che genere di musica ti piace?",
+      "locale": "it-IT",
+      "id": "0e44f4d6-f2e7-4a71-aa75-c8d815912413"
+    },
+    {
+      "data": "L'ultimo concerto a cui sei andata",
+      "locale": "it-IT",
+      "id": "bf0842f8-92b8-4407-8990-247822d668b9"
+    },
+    {
+      "data": "Cocktail preferito?",
+      "locale": "it-IT",
+      "id": "d44a301c-b6ec-4067-8916-40f7211fa8c6"
+    },
+    {
+      "data": "Che genere di film ti piace guardare?",
+      "locale": "it-IT",
+      "id": "e41ca8a1-d5e2-4de7-9117-c69693bc08b3"
+    },
+    {
+      "data": "Ultima serie vista su netflix?",
+      "locale": "it-IT",
+      "id": "f13abb9e-0e8d-4a66-9364-6adfb4b8c042"
+    }
+  ]

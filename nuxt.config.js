@@ -46,6 +46,6 @@ export default {
   },
   build: {},
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:4000',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   },
 }
